@@ -28,7 +28,8 @@ recent chats:
     "Our project chat" -> "#myname/$abc123"
     "Some other chat" -> "#friendname/$xyz789"
 
-Ths first time Skype will prompt you to allow Python access to Skype.
+The first time you run a Skype4Py script Skype will display a prompt
+asking you whether to allow Python access to Skype.
 
 Running
 -------
