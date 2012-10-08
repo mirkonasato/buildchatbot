@@ -11,7 +11,7 @@ from xml.etree import ElementTree
 
 JENKINS_URL = 'http://127.0.0.1:8080'
 SKYPE_CHAT = '#user/$abc123'
-UPDATE_INTERVAL = 5  # seconds
+UPDATE_INTERVAL = 15  # seconds
 MESSAGE_PREFIX = '[Jenkins] '
 
 class Build:
@@ -28,7 +28,10 @@ class BuildMonitor:
 
   def loop(self):
     while True:
-      self.check_for_new_builds()
+      try:
+        self.check_for_new_builds()
+      except IOError as e:
+        print 'WARNING! update failed:', e.strerror
       sleep(UPDATE_INTERVAL)
 
   def check_for_new_builds(self):

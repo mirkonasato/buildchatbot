@@ -28,6 +28,15 @@ recent chats:
     "Our project chat" -> "#myname/$abc123"
     "Some other chat" -> "#friendname/$xyz789"
 
+Ths first time Skype will prompt you to allow Python access to Skype.
+
+Running
+-------
+
+Always with Skype already running, simply launch the script:
+
+    python buildchatbot.py
+
 License
 -------
 
