@@ -4,6 +4,7 @@
 # Copyright (c) 2012 Mirko Nasato - All rights reserved.
 # Licensed under the BSD 2-clause license; see LICENSE.txt
 #
+import platform
 from time import sleep
 from urllib import urlopen
 from Skype4Py import Skype
@@ -66,7 +67,10 @@ class BuildMonitor:
 class BuildNotifier:
 
   def __init__(self):
-    skype = Skype()
+    if platform.system() == 'Windows':
+      skype = Skype()
+    else:
+      skype = Skype(Transport='x11')
     skype.Attach()
     self.chat = skype.Chat(SKYPE_CHAT)
 
