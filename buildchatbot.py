@@ -49,11 +49,11 @@ class BuildMonitor:
   def handle_new_build(self, build, old_status):
     transition = (old_status, build.status)
     if transition == ('Failure', 'Failure'):
-      self.listener.notify(build, 'Still failing')
+      self.listener.notify(build, '(rain) Still failing')
     elif transition == ('Failure', 'Success'):
-      self.listener.notify(build, 'Fixed')
+      self.listener.notify(build, '(sun) Fixed')
     elif build.status == 'Failure':
-      self.listener.notify(build, 'Failed')
+      self.listener.notify(build, '(rain) Failed')
 
   def fetch_builds(self):
     builds = {}
